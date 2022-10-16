@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace _2._4
 {
     [Obsolete("frequently-used type")]
-    internal class FUT
+    public class FUT
     {
         private int mVariable;
         void privateFunc()
