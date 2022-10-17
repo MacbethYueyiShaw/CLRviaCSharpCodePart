@@ -77,11 +77,16 @@ namespace _4_2
     }
 }
 /*
-using as keyword : Elapsed=00:00:00.0241954
+OUTPUT:
+...
 Compare performance: parse A
 using is keyword : Elapsed=00:00:00.0000005
 using as keyword : Elapsed=00:00:00.0000003
 Compare performance: parse A3
 using is keyword : Elapsed=00:00:00.0000006
 using as keyword : Elapsed=00:00:00.0000003
+...
+you may noticed that the method using "is" takes nearly twice as long as the one using "as",
+this is because the "is" method do a CLR type check in "is" part, and also do the same thing in "A a = o as A",
+CLR type check will be called only once in "as" method.
 */
