@@ -62,6 +62,7 @@ namespace _5._2
         {
             //notice that Marshal.Sizeof cannot parse an unmanaged structure, in this case, type with keyword "LayoutKind.Auto" cannot be parsed.
             RefType_Sequential o1 = new RefType_Sequential();
+            RefType_Sequential o1_1 = new RefType_Sequential();
             Console.WriteLine("RefType_Sequential size:" + Marshal.SizeOf(o1).ToString());
             /*ValType_Auto o2 = new ValType_Auto();
             Console.WriteLine("ValType_Auto size:" + Marshal.SizeOf(o2).ToString())*/;
@@ -101,12 +102,25 @@ namespace _5._2
 
             //we also talk about memory overlapping
             ValType_Explicit2 A = new ValType_Explicit2();
-            //ValType_Explicit2 B = new ValType_Explicit2();
+            //check address of reftype
             unsafe
             {
                 TypedReference tr = __makeref(o1);
                 IntPtr ptr = **(IntPtr**)(&tr);
-                Console.WriteLine("A.m_b address:" + "0x" + ptr.ToString("X"));
+                Console.WriteLine("RefType_Sequential address:" + "0x" + ptr.ToString("X"));
+                TypedReference tr1 = __makeref(o1_1);
+                IntPtr ptr1 = **(IntPtr**)(&tr1);
+                Console.WriteLine("RefType_Sequential address:" + "0x" + ptr1.ToString("X"));
+            }
+            GCHandle h = GCHandle.Alloc(o1, GCHandleType.Pinned);
+            IntPtr addr1 = h.AddrOfPinnedObject();
+            Console.WriteLine(addr1.ToString("x"));
+            //check address of valtype
+            unsafe
+            {
+                byte* ptr = &A.m_b;
+                IntPtr addr = (IntPtr)ptr;
+                Console.WriteLine("A.m_b address:" + "0x" + addr.ToString("X"));
             }
             
 
