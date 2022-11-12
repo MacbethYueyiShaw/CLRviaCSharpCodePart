@@ -33,13 +33,13 @@
   .ver 0:0:0:0
 }
 .module Project1.exe
-// MVID: {7C5396E7-A53F-4ECF-B5D8-9FB41415C3AB}
+// MVID: {98814546-8D1B-4EC7-9FF4-EE4D95EFF963}
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00020003    //  ILONLY 32BITPREFERRED
-// Image base: 0x09A30000
+// Image base: 0x06A70000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -833,10 +833,10 @@
   {
     .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
     .field public static initonly class Project1.AnonymousType/'<>c' '<>9'
-    .field public static class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> '<>9__0_0'
-    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> '<>9__0_1'
-    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> '<>9__0_2'
-    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> '<>9__0_3'
+    .field public static class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> '<>9__3_0'
+    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> '<>9__3_1'
+    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> '<>9__3_2'
+    .field public static class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> '<>9__3_3'
     .method private hidebysig specialname rtspecialname static 
             void  .cctor() cil managed
     {
@@ -859,7 +859,7 @@
     } // end of method '<>c'::.ctor
 
     .method assembly hidebysig instance class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> 
-            '<Main>b__0_0'(string pathname) cil managed
+            '<codeExample>b__3_0'(string pathname) cil managed
     {
       // 代码大小       13 (0xd)
       .maxstack  8
@@ -869,10 +869,10 @@
       IL_0007:  newobj     instance void class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>::.ctor(!0,
                                                                                                                           !1)
       IL_000c:  ret
-    } // end of method '<>c'::'<Main>b__0_0'
+    } // end of method '<>c'::'<codeExample>b__3_0'
 
     .method assembly hidebysig instance bool 
-            '<Main>b__0_1'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
+            '<codeExample>b__3_1'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
     {
       // 代码大小       36 (0x24)
       .maxstack  8
@@ -886,20 +886,20 @@
       IL_001e:  call       bool [mscorlib]System.DateTime::op_GreaterThan(valuetype [mscorlib]System.DateTime,
                                                                           valuetype [mscorlib]System.DateTime)
       IL_0023:  ret
-    } // end of method '<>c'::'<Main>b__0_1'
+    } // end of method '<>c'::'<codeExample>b__3_1'
 
     .method assembly hidebysig instance valuetype [mscorlib]System.DateTime 
-            '<Main>b__0_2'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
+            '<codeExample>b__3_2'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
     {
       // 代码大小       7 (0x7)
       .maxstack  8
       IL_0000:  ldarg.1
       IL_0001:  callvirt   instance !1 class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>::get_LastWrite()
       IL_0006:  ret
-    } // end of method '<>c'::'<Main>b__0_2'
+    } // end of method '<>c'::'<codeExample>b__3_2'
 
     .method assembly hidebysig instance class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime> 
-            '<Main>b__0_3'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
+            '<codeExample>b__3_3'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> '<>h__TransparentIdentifier0') cil managed
     {
       // 代码大小       18 (0x12)
       .maxstack  8
@@ -910,13 +910,107 @@
       IL_000c:  newobj     instance void class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>::.ctor(!0,
                                                                                                                           !1)
       IL_0011:  ret
-    } // end of method '<>c'::'<Main>b__0_3'
+    } // end of method '<>c'::'<codeExample>b__3_3'
 
   } // end of class '<>c'
 
   .method private hidebysig static void  Main() cil managed
   {
     .entrypoint
+    // 代码大小       64 (0x40)
+    .maxstack  1
+    .locals init ([0] class [mscorlib]System.Type 'type',
+             [1] object o)
+    IL_0000:  nop
+    IL_0001:  call       void Project1.AnonymousType::TupleExample()
+    IL_0006:  nop
+    IL_0007:  call       class [mscorlib]System.Type Project1.AnonymousType::TryToParseAnonymousType()
+    IL_000c:  stloc.0
+    IL_000d:  ldloc.0
+    IL_000e:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0013:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_0018:  nop
+    IL_0019:  newobj     instance void [mscorlib]System.Object::.ctor()
+    IL_001e:  stloc.1
+    IL_001f:  ldloca.s   o
+    IL_0021:  call       void Project1.AnonymousType::TryToParseAnonymousObject(object&)
+    IL_0026:  nop
+    IL_0027:  ldloc.1
+    IL_0028:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+    IL_002d:  call       void [mscorlib]System.Console::WriteLine(object)
+    IL_0032:  nop
+    IL_0033:  ldloc.1
+    IL_0034:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0039:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_003e:  nop
+    IL_003f:  ret
+  } // end of method AnonymousType::Main
+
+  .method private hidebysig static class [mscorlib]System.Type 
+          TryToParseAnonymousType() cil managed
+  {
+    // 代码大小       51 (0x33)
+    .maxstack  2
+    .locals init ([0] class '<>f__AnonymousType0`2'<string,int32> AnonymousObject,
+             [1] class [mscorlib]System.Type 'type',
+             [2] class [mscorlib]System.Type V_2)
+    IL_0000:  nop
+    IL_0001:  ldstr      "name"
+    IL_0006:  ldc.i4.s   123
+    IL_0008:  newobj     instance void class '<>f__AnonymousType0`2'<string,int32>::.ctor(!0,
+                                                                                          !1)
+    IL_000d:  stloc.0
+    IL_000e:  ldloc.0
+    IL_000f:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+    IL_0014:  call       void [mscorlib]System.Console::WriteLine(object)
+    IL_0019:  nop
+    IL_001a:  ldloc.0
+    IL_001b:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0020:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_0025:  nop
+    IL_0026:  ldloc.0
+    IL_0027:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+    IL_002c:  stloc.1
+    IL_002d:  ldloc.1
+    IL_002e:  stloc.2
+    IL_002f:  br.s       IL_0031
+
+    IL_0031:  ldloc.2
+    IL_0032:  ret
+  } // end of method AnonymousType::TryToParseAnonymousType
+
+  .method private hidebysig static void  TryToParseAnonymousObject([out] object& 'handler') cil managed
+  {
+    // 代码大小       49 (0x31)
+    .maxstack  2
+    .locals init ([0] class '<>f__AnonymousType0`2'<string,int32> AnonymousObject,
+             [1] class [mscorlib]System.Type 'type')
+    IL_0000:  nop
+    IL_0001:  ldstr      "name"
+    IL_0006:  ldc.i4.s   123
+    IL_0008:  newobj     instance void class '<>f__AnonymousType0`2'<string,int32>::.ctor(!0,
+                                                                                          !1)
+    IL_000d:  stloc.0
+    IL_000e:  ldloc.0
+    IL_000f:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+    IL_0014:  call       void [mscorlib]System.Console::WriteLine(object)
+    IL_0019:  nop
+    IL_001a:  ldloc.0
+    IL_001b:  callvirt   instance string [mscorlib]System.Object::ToString()
+    IL_0020:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_0025:  nop
+    IL_0026:  ldloc.0
+    IL_0027:  callvirt   instance class [mscorlib]System.Type [mscorlib]System.Object::GetType()
+    IL_002c:  stloc.1
+    IL_002d:  ldarg.0
+    IL_002e:  ldloc.0
+    IL_002f:  stind.ref
+    IL_0030:  ret
+  } // end of method AnonymousType::TryToParseAnonymousObject
+
+  .method private hidebysig instance void 
+          codeExample() cil managed
+  {
     // 代码大小       342 (0x156)
     .maxstack  3
     .locals init ([0] class '<>f__AnonymousType0`2'<string,int32> AnonymousObject,
@@ -977,56 +1071,56 @@
     IL_007e:  stloc.s    myDoc
     IL_0080:  ldloc.s    myDoc
     IL_0082:  call       string[] [mscorlib]System.IO.Directory::GetFiles(string)
-    IL_0087:  ldsfld     class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__0_0'
+    IL_0087:  ldsfld     class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__3_0'
     IL_008c:  dup
     IL_008d:  brtrue.s   IL_00a6
 
     IL_008f:  pop
     IL_0090:  ldsfld     class Project1.AnonymousType/'<>c' Project1.AnonymousType/'<>c'::'<>9'
-    IL_0095:  ldftn      instance class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<Main>b__0_0'(string)
+    IL_0095:  ldftn      instance class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<codeExample>b__3_0'(string)
     IL_009b:  newobj     instance void class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>>::.ctor(object,
                                                                                                                                                               native int)
     IL_00a0:  dup
-    IL_00a1:  stsfld     class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__0_0'
+    IL_00a1:  stsfld     class [mscorlib]System.Func`2<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__3_0'
     IL_00a6:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!1> [System.Core]System.Linq.Enumerable::Select<string,class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
                                                                                                                                                                                                                      class [mscorlib]System.Func`2<!!0,!!1>)
-    IL_00ab:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> Project1.AnonymousType/'<>c'::'<>9__0_1'
+    IL_00ab:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> Project1.AnonymousType/'<>c'::'<>9__3_1'
     IL_00b0:  dup
     IL_00b1:  brtrue.s   IL_00ca
 
     IL_00b3:  pop
     IL_00b4:  ldsfld     class Project1.AnonymousType/'<>c' Project1.AnonymousType/'<>c'::'<>9'
-    IL_00b9:  ldftn      instance bool Project1.AnonymousType/'<>c'::'<Main>b__0_1'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
+    IL_00b9:  ldftn      instance bool Project1.AnonymousType/'<>c'::'<codeExample>b__3_1'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
     IL_00bf:  newobj     instance void class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool>::.ctor(object,
                                                                                                                                                             native int)
     IL_00c4:  dup
-    IL_00c5:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> Project1.AnonymousType/'<>c'::'<>9__0_1'
+    IL_00c5:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,bool> Project1.AnonymousType/'<>c'::'<>9__3_1'
     IL_00ca:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0> [System.Core]System.Linq.Enumerable::Where<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
                                                                                                                                                                                                              class [mscorlib]System.Func`2<!!0,bool>)
-    IL_00cf:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<>9__0_2'
+    IL_00cf:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<>9__3_2'
     IL_00d4:  dup
     IL_00d5:  brtrue.s   IL_00ee
 
     IL_00d7:  pop
     IL_00d8:  ldsfld     class Project1.AnonymousType/'<>c' Project1.AnonymousType/'<>c'::'<>9'
-    IL_00dd:  ldftn      instance valuetype [mscorlib]System.DateTime Project1.AnonymousType/'<>c'::'<Main>b__0_2'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
+    IL_00dd:  ldftn      instance valuetype [mscorlib]System.DateTime Project1.AnonymousType/'<>c'::'<codeExample>b__3_2'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
     IL_00e3:  newobj     instance void class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime>::.ctor(object,
                                                                                                                                                                                            native int)
     IL_00e8:  dup
-    IL_00e9:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<>9__0_2'
+    IL_00e9:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<>9__3_2'
     IL_00ee:  call       class [System.Core]System.Linq.IOrderedEnumerable`1<!!0> [System.Core]System.Linq.Enumerable::OrderBy<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,valuetype [mscorlib]System.DateTime>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
                                                                                                                                                                                                                                               class [mscorlib]System.Func`2<!!0,!!1>)
-    IL_00f3:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__0_3'
+    IL_00f3:  ldsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__3_3'
     IL_00f8:  dup
     IL_00f9:  brtrue.s   IL_0112
 
     IL_00fb:  pop
     IL_00fc:  ldsfld     class Project1.AnonymousType/'<>c' Project1.AnonymousType/'<>c'::'<>9'
-    IL_0101:  ldftn      instance class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<Main>b__0_3'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
+    IL_0101:  ldftn      instance class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime> Project1.AnonymousType/'<>c'::'<codeExample>b__3_3'(class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>)
     IL_0107:  newobj     instance void class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>>::.ctor(object,
                                                                                                                                                                                                                                  native int)
     IL_010c:  dup
-    IL_010d:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__0_3'
+    IL_010d:  stsfld     class [mscorlib]System.Func`2<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>> Project1.AnonymousType/'<>c'::'<>9__3_3'
     IL_0112:  call       class [mscorlib]System.Collections.Generic.IEnumerable`1<!!1> [System.Core]System.Linq.Enumerable::Select<class '<>f__AnonymousType2`2'<string,valuetype [mscorlib]System.DateTime>,class '<>f__AnonymousType3`2'<string,valuetype [mscorlib]System.DateTime>>(class [mscorlib]System.Collections.Generic.IEnumerable`1<!!0>,
                                                                                                                                                                                                                                                                                         class [mscorlib]System.Func`2<!!0,!!1>)
     IL_0117:  stloc.s    query
@@ -1065,7 +1159,27 @@
       IL_0154:  endfinally
     }  // end handler
     IL_0155:  ret
-  } // end of method AnonymousType::Main
+  } // end of method AnonymousType::codeExample
+
+  .method private hidebysig static void  TupleExample() cil managed
+  {
+    // 代码大小       28 (0x1c)
+    .maxstack  2
+    .locals init ([0] class '<>f__AnonymousType0`2'<string,int32> anonymousObj,
+             [1] class [mscorlib]System.Tuple`2<string,int32> tupleObj)
+    IL_0000:  nop
+    IL_0001:  ldstr      "name"
+    IL_0006:  ldc.i4.s   123
+    IL_0008:  newobj     instance void class '<>f__AnonymousType0`2'<string,int32>::.ctor(!0,
+                                                                                          !1)
+    IL_000d:  stloc.0
+    IL_000e:  ldstr      "name"
+    IL_0013:  ldc.i4.s   123
+    IL_0015:  newobj     instance void class [mscorlib]System.Tuple`2<string,int32>::.ctor(!0,
+                                                                                           !1)
+    IL_001a:  stloc.1
+    IL_001b:  ret
+  } // end of method AnonymousType::TupleExample
 
   .method public hidebysig specialname rtspecialname 
           instance void  .ctor() cil managed

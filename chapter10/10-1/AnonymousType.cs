@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
+    using kv = Tuple<string, int>;
     internal class AnonymousType
     {
         static void Main()
         {
+            TupleExample();
             var type = TryToParseAnonymousType();
             Console.WriteLine(type.ToString());
             /*var AnonymousObj = System.Activator.CreateInstance(type);
@@ -43,6 +45,7 @@ namespace Project1
             var AnonymousObject = new { Name = "name", age = 123 };
             Console.WriteLine(AnonymousObject.GetType());
             Console.WriteLine(AnonymousObject.ToString());
+            //AnonymousObject.Name = "newName"; readonly!
             Type type = AnonymousObject.GetType();
             var AnonymousObject2 = new { Name = "name", age = 123, Value = AnonymousObject };
             Console.WriteLine(AnonymousObject2.GetType());
@@ -62,6 +65,11 @@ namespace Project1
             {
                 Console.WriteLine(item.ToString());
             }
+        }
+        static void TupleExample()
+        {
+            var anonymousObj = new { Name = "name", age = 123 };
+            var tupleObj = new kv("name", 123);
         }
     }
 }
