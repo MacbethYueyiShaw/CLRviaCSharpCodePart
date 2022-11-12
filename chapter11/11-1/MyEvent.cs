@@ -14,6 +14,10 @@ namespace _11_1
         {
             this.msg = msg;
         }
+        public String Message
+        {
+            get { return msg; }
+        }
     }
     internal static class EventArgExtensions
     {
@@ -61,7 +65,13 @@ namespace _11_1
     {
         public void SubscribedNews(Object sender, MyEventArgs e)
         {
-            Console.WriteLine("{0}\n",e.ToString());
+            Console.WriteLine("SubscribedNews:" + "{0}\n", e.Message.ToString());
+        }
+        public void ListenNewsOnlyOnce(Object sender, MyEventArgs e)
+        {
+            Console.WriteLine("ListenNewsOnlyOnce:" + "{0}\n", e.Message.ToString());
+            var manager = (MyEventManager)sender;
+            manager.myevent -= this.ListenNewsOnlyOnce;
         }
     }
     internal class Entry
@@ -71,6 +81,12 @@ namespace _11_1
             MyEventManager myEventManager = new MyEventManager();
             Subscriber subscriber = new Subscriber();
             myEventManager.myevent += subscriber.SubscribedNews;
+            myEventManager.myevent += subscriber.SubscribedNews;
+            myEventManager.myevent += subscriber.ListenNewsOnlyOnce;
+            var e = new MyEventArgs("msg1");
+            myEventManager.ProduceAEvent(e);
+            var e2 = new MyEventArgs("msg2");
+            myEventManager.ProduceAEvent(e2);
         }
     }
 }
