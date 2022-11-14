@@ -20,6 +20,7 @@ namespace Project1
 #endif
             test2();
         }
+        //test1 won't be compiled to il
 #if DEF_DEBUG
         static void test1()
         {
