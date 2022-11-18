@@ -13,12 +13,20 @@ namespace stringOpCost
     {
         static void Main()
         {
+            string target = "jkli";
             string str = "wasd jkli".Split(' ').Last();
             using (new OperationTimer("using a reference"))
             {
                 for (Int32 i = 0; i < 10000; i++)
                 {
-                    String a = "jkli";
+                    String a = target;
+                }
+            }
+            using (new OperationTimer("using string operator + to concat a str"))
+            {
+                for (Int32 i = 0; i < 10000; i++)
+                {
+                    String a = "mh" + "tr";
                 }
             }
             using (new OperationTimer("using string method op to get a str"))
@@ -28,7 +36,7 @@ namespace stringOpCost
                     String a = str.Split(' ').Last();
                 }
             }
-
+            
             //simulate network file io
             string mPhotoPath = "../../data/";
             string url = "https://bucketname.oss-cn-cityname.aliyuncs.com/pictures/somefile.text";
