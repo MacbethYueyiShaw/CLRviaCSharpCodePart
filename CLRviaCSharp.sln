@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32901.82
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.8", "chapter1\1.8\1.8.csproj", "{B3C15481-0CD6-4ED7-8545-BE9256FBEEDD}"
 EndProject
@@ -68,6 +68,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaderWriterLock", "Tips\ReaderWriterLock\ReaderWriterLock.csproj", "{0360BC8D-5303-42EF-980C-A387C72AAB28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaderWriterLockSlim", "Tips\ReaderWriterLockSlim\ReaderWriterLockSlim.csproj", "{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inheritance", "Tips\inheritance\inheritance.csproj", "{378BE88D-ED57-4B50-88F5-299F696C5374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +165,10 @@ Global
 		{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378BE88D-ED57-4B50-88F5-299F696C5374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378BE88D-ED57-4B50-88F5-299F696C5374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378BE88D-ED57-4B50-88F5-299F696C5374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378BE88D-ED57-4B50-88F5-299F696C5374}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +196,7 @@ Global
 		{C4C34386-72BC-4D3F-9CC8-F83BBC707E0B} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{0360BC8D-5303-42EF-980C-A387C72AAB28} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
+		{378BE88D-ED57-4B50-88F5-299F696C5374} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6678A51C-E2DF-4911-8DC7-0F6C69A51292}
