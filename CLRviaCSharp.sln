@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inheritance", "Tips\inherit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTpyeArrayParse", "Tips\ValueTpyeArrayParse\ValueTpyeArrayParse.csproj", "{266F735B-16A5-46F0-8E30-671C63EDC59B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "allocconsole", "Tips\AllocConsole\allocconsole.csproj", "{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +177,10 @@ Global
 		{266F735B-16A5-46F0-8E30-671C63EDC59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{266F735B-16A5-46F0-8E30-671C63EDC59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{266F735B-16A5-46F0-8E30-671C63EDC59B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +210,7 @@ Global
 		{4F51B552-93DD-4D64-A97C-BCDC1B42D4DA} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{378BE88D-ED57-4B50-88F5-299F696C5374} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{266F735B-16A5-46F0-8E30-671C63EDC59B} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
+		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6678A51C-E2DF-4911-8DC7-0F6C69A51292}
