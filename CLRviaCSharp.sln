@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32901.82
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.8", "chapter1\1.8\1.8.csproj", "{B3C15481-0CD6-4ED7-8545-BE9256FBEEDD}"
 EndProject
@@ -74,6 +74,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTpyeArrayParse", "Tips\ValueTpyeArrayParse\ValueTpyeArrayParse.csproj", "{266F735B-16A5-46F0-8E30-671C63EDC59B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "allocconsole", "Tips\AllocConsole\allocconsole.csproj", "{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chapter20", "chapter20", "{DEA6A564-6E0F-4781-BC7A-A26AE09804B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20-2", "chapter20\20-2\20-2.csproj", "{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +185,10 @@ Global
 		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +219,7 @@ Global
 		{378BE88D-ED57-4B50-88F5-299F696C5374} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{266F735B-16A5-46F0-8E30-671C63EDC59B} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
 		{2AE516D0-37D4-4E1C-A5B7-D1CA5FA63C26} = {0EEBAFE7-287B-4358-8FCE-02C4E09ADF1F}
+		{1AC1B2AD-24DA-4FE6-9446-5DE351C417BB} = {DEA6A564-6E0F-4781-BC7A-A26AE09804B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6678A51C-E2DF-4911-8DC7-0F6C69A51292}
