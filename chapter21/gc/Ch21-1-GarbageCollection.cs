@@ -20,15 +20,15 @@ public sealed class Progam
         //CircularDependency.Go();
         //FixedStatement.Go();
         //MemoryPressureAndHandleCollector.Go();
-        MemoryFailPointDemo.Go();
-        //GCMethods.Go();
-        //ConditionalWeakTableDemo.Go();
+        //MemoryFailPointDemo.Go();
+        GCMethods.Go();
+        ConditionalWeakTableDemo.Go();
 
         // Fun note: array of Doubles that have 1000+ elements are put in 
         // the LOH because objects in the LOH are 8-byte aligned which 
         // improves perf for accessing large arrays of Doubles
-        Console.WriteLine(GC.GetGeneration(new Double[999]));    // 0  
-        Console.WriteLine(GC.GetGeneration(new Double[1000]));   // 2
+        /*Console.WriteLine(GC.GetGeneration(new Double[999]));    // 0  
+        Console.WriteLine(GC.GetGeneration(new Double[1000]));   // 2*/
         Console.WriteLine("Press any key to exit...");
         Console.ReadLine();
     }
@@ -496,7 +496,6 @@ internal static class GCMethods
 
         GC.Collect();
         Console.WriteLine("Gen " + GC.GetGeneration(o)); // 2 (max)
-
 
         o = null; // Destroy the strong reference to this object.
 
