@@ -44,7 +44,7 @@ class MemoryFailPointExample
         return memUsageInMB;
     }
 
-    static void Main1()
+    static void Main()
     {
         Console.WriteLine("Attempts to allocate more than 2 GB of memory across worker threads.");
         int memUsageInMB = EstimateMemoryUsageInMB();
@@ -63,7 +63,9 @@ class MemoryFailPointExample
             try
             {
                 // Check for available memory.
+                Console.WriteLine("start memFailPoint");
                 memFailPoint = new MemoryFailPoint(memUsageInMB);
+                Console.WriteLine("pass memFailPoint");
                 n = (int)workQueue.Dequeue();
                 threads[n] =
                     new Thread(new ParameterizedThreadStart(ThreadMethod));

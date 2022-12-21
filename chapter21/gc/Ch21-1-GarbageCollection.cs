@@ -10,7 +10,7 @@ using Microsoft.Win32.SafeHandles;
 
 public sealed class Progam
 {
-    public static void Main()
+    public static void Main1()
     {
         //Roots.Go();
         //DebuggingRoots.Go();
@@ -20,9 +20,9 @@ public sealed class Progam
         //CircularDependency.Go();
         //FixedStatement.Go();
         //MemoryPressureAndHandleCollector.Go();
-        //MemoryFailPointDemo.Go();
-        GCMethods.Go();
-        ConditionalWeakTableDemo.Go();
+        MemoryFailPointDemo.Go();
+        //GCMethods.Go();
+        //ConditionalWeakTableDemo.Go();
 
         // Fun note: array of Doubles that have 1000+ elements are put in 
         // the LOH because objects in the LOH are 8-byte aligned which 
@@ -457,14 +457,23 @@ internal static class MemoryPressureAndHandleCollector
 
 internal static class MemoryFailPointDemo
 {
+    private const uint chunkSize = 50 << 20;
     public static void Go()
     {
         try
         {
-            // Logically reserve 1.5GB of memory
-            using (MemoryFailPoint mfp = new MemoryFailPoint(1500))
+            // Logically reserve 5GB of memory
+            using (MemoryFailPoint mfp = new MemoryFailPoint(5000))
             {
                 // Perform memory-hungry algorithm in here
+                var l = new List<Object>();
+                // Construct a lot of 100-byte objects.
+                for (Int32 x = 0; x < 100; x++)
+                {
+                    Console.WriteLine(x);
+                    Byte[] b = new Byte[chunkSize];
+                    l.Add(b);
+                }
             }
         }
         catch (InsufficientMemoryException e)
