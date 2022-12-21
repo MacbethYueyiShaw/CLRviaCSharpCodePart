@@ -14,15 +14,15 @@ public sealed class Progam
     {
         //Roots.Go();
         //DebuggingRoots.Go();
-        GCNotifications.Go();
-        /*SafeHandleInterop.Go();
-        GCBeepDemo.Go();
-        CircularDependency.Go();
-        FixedStatement.Go();
-        MemoryPressureAndHandleCollector.Go();
+        //GCNotifications.Go();
+        //SafeHandleInterop.Go();
+        //GCBeepDemo.Go();
+        //CircularDependency.Go();
+        //FixedStatement.Go();
+        //MemoryPressureAndHandleCollector.Go();
         MemoryFailPointDemo.Go();
-        GCMethods.Go();
-        ConditionalWeakTableDemo.Go();*/
+        //GCMethods.Go();
+        //ConditionalWeakTableDemo.Go();
 
         // Fun note: array of Doubles that have 1000+ elements are put in 
         // the LOH because objects in the LOH are 8-byte aligned which 
@@ -104,7 +104,10 @@ internal static class GCBeepDemo
     public static void Go()
     {
         // Register a callback method to be invoked whenever a GC occurs. 
-        GCNotification.GCDone += g => Console.Beep(g == 0 ? 800 : 8000, 200);
+        GCNotification.GCDone += (
+            g => 
+            Console.Beep(g == 0 ? 800 : 8000, 200)
+            );
         var l = new List<Object>();
         // Construct a lot of 100-byte objects.
         for (Int32 x = 0; x < 500000; x++)
@@ -134,7 +137,10 @@ internal static class GCBeepDemo
         private sealed class GenObject
         {
             private Int32 m_generation;
-            public GenObject(Int32 generation) { m_generation = generation; }
+            public GenObject(Int32 generation) 
+            {
+                m_generation = generation; 
+            }
             ~GenObject()
             { // This is the Finalize method
               // If this object is in the generation we want (or higher), 

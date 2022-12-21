@@ -38,5 +38,8 @@
   <ItemGroup>
     <Compile Include="Ch22-1-AppDomains.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

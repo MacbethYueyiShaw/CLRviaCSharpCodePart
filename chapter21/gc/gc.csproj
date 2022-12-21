@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ch21-1-GarbageCollection.cs" />
+    <Compile Include="mfp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
