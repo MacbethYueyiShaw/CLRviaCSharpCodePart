@@ -127,11 +127,7 @@ class MemoryFailPointExample
             "thread number {0}.", state.ThreadNumber);
         byte[] bytes = null;
 
-        //cancle try-catch block to check whole track-tree
-        bytes = new byte[chunkSize];
-        //state.MemoryFailPoint.Dispose();
-
-        /*try
+        try
         {
             bytes = new byte[chunkSize];
             // Allocated all the memory needed for this workitem.
@@ -142,7 +138,11 @@ class MemoryFailPointExample
         {
             Console.Beep();
             Console.WriteLine("Unexpected OutOfMemory exception thrown: " + oom);
-        }*/
+            //this exception was thrown beacuse, in this example ThreadMethod is not thread-safe.
+            //It is possible in a subthread which just get created and it is going to new a byte[](64M), but in Main thread while loop(Line 66)
+            //MemoryFailPoint got a heap count before line 128's code being excuted
+            //and that will cause the new subthread throwing a oom(OutOfMemory)
+        }
 
         // Do work here, possibly taking a lock if this app needs
         while (true)
