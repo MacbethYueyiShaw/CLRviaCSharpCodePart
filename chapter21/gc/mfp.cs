@@ -46,7 +46,7 @@ class MemoryFailPointExample
 
     static void Main()
     {
-        Console.WriteLine("Attempts to allocate more than 2 GB of memory across worker threads.");
+        Console.WriteLine("Attempts to allocate more than 6.4 GB of memory across worker threads.");
         int memUsageInMB = EstimateMemoryUsageInMB();
 
         // For a production application consider using the threadpool instead.
@@ -126,7 +126,12 @@ class MemoryFailPointExample
         Console.WriteLine("Executing ThreadMethod, " +
             "thread number {0}.", state.ThreadNumber);
         byte[] bytes = null;
-        try
+
+        //cancle try-catch block to check whole track-tree
+        bytes = new byte[chunkSize];
+        //state.MemoryFailPoint.Dispose();
+
+        /*try
         {
             bytes = new byte[chunkSize];
             // Allocated all the memory needed for this workitem.
@@ -137,9 +142,16 @@ class MemoryFailPointExample
         {
             Console.Beep();
             Console.WriteLine("Unexpected OutOfMemory exception thrown: " + oom);
-        }
+        }*/
 
         // Do work here, possibly taking a lock if this app needs
+        while (true)
+        {
+            //hold the thread to check why throw OutOfMemoryException
+            //theoretically, InsufficientMemoryException is thrown before main thread try to new a thread, which means
+            //OutOfMemoryException will never be triggered because we only create a new thread when we make sure memory is enough.
+            //this exception is triggered due to line 132/139 "state.MemoryFailPoint.Dispose();"
+        }
         // synchronization between worker threads and/or the main thread.
 
         // Keep the thread alive for awhile to simulate a running thread.
