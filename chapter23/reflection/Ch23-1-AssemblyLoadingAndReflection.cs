@@ -8,15 +8,17 @@ using System.Text;
 using Microsoft.CSharp.RuntimeBinder;
 
 public sealed class Program {
-   public static void Main() {
-      DynamicLoadFromResource.Go();
-      DiscoverTypes.Go();
-      ConstructingGenericType.Go();
-      MemberDiscover.Go();
-      InterfaceDiscover.Go();
-      Invoker.Go();
-      ExceptionTree.Go();
-   }
+    public static void Main()
+    {
+        DynamicLoadFromResource.Go();
+        //DiscoverTypes.Go();
+        //ConstructingGenericType.Go();
+        //MemberDiscover.Go();
+        //InterfaceDiscover.Go();
+        //Invoker.Go();
+        //ExceptionTree.Go();
+        Console.ReadLine();
+    }
 }
 
 internal static class DynamicLoadFromResource {
