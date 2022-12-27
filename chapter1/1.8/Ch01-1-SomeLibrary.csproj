@@ -7,7 +7,7 @@
     <ProjectGuid>{B3C15481-0CD6-4ED7-8545-BE9256FBEEDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>_1._8</RootNamespace>
-    <AssemblyName>1.8</AssemblyName>
+    <AssemblyName>Ch01-1-SomeLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
