@@ -16,7 +16,7 @@ public sealed class Program {
       // Create a collection of Add-In Types usable by the host
       var AddInTypes =
          from file in AddInAssemblies
-         let assembly = Assembly.Load(file)
+         let assembly = Assembly.LoadFile(file)//use loadfile instead of load
          from t in assembly.ExportedTypes // Publicly-exported types
          // Type is usable if it is a class that implements IAddIn 
          where t.IsClass && typeof(IAddIn).GetTypeInfo().IsAssignableFrom(t.GetTypeInfo())

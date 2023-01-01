@@ -10,8 +10,8 @@ using Microsoft.CSharp.RuntimeBinder;
 public sealed class Program {
     public static void Main()
     {
-        DynamicLoadFromResource.Go();
-        //DiscoverTypes.Go();
+        //DynamicLoadFromResource.Go();
+        DiscoverTypes.Go();
         //ConstructingGenericType.Go();
         //MemberDiscover.Go();
         //InterfaceDiscover.Go();

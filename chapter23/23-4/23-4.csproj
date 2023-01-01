@@ -38,5 +38,15 @@
   <ItemGroup>
     <Compile Include="Ch23-4-AddIn_Host.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\23-2\23-2.csproj">
+      <Project>{34028a24-f583-432c-b1fd-64936cd1e5be}</Project>
+      <Name>23-2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\23-3\23-3.csproj">
+      <Project>{5f093164-9365-460e-a2be-319db5637a4f}</Project>
+      <Name>23-3</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
