@@ -15,7 +15,7 @@ namespace CancelTask
             {
                 Test().Wait();
             }
-            catch(Exception e)
+            catch(AggregateException e)
             {
                 Console.WriteLine("Main catch exception", e.ToString());
             }
@@ -29,8 +29,8 @@ namespace CancelTask
             var cts = new CancellationTokenSource();
             var ct = cts.Token;
 
-            //1.use task method to parse exception
-            /*var mInitializationTask = Task.Run(
+            //1(3).use task method to parse exception
+            var mInitializationTask = Task.Run(
                  () =>
                  {
                      ct.ThrowIfCancellationRequested();
@@ -55,7 +55,7 @@ namespace CancelTask
                             }
                             catch (OperationCanceledException e)
                             {
-                                Console.WriteLine("catch TaskCanceledException in mConcurrentTask" + e.ToString());
+                                Console.WriteLine("mConcurrentTask: catch OperationCanceledException");
                                 throw;
                             }
                             finally
@@ -65,7 +65,7 @@ namespace CancelTask
                         }
                     }
                 }
-                , ct);*/
+                , ct);
             try
             {
                 _ = Task.Run(
@@ -84,7 +84,7 @@ namespace CancelTask
                 //mConcurrentTask.Wait();
 
                 //2.await method
-                await Task.Run(
+                /*await Task.Run(
                  () =>
                  {
                      ct.ThrowIfCancellationRequested();
@@ -108,7 +108,7 @@ namespace CancelTask
                                 }
                                 catch (OperationCanceledException e)
                                 {
-                                    Console.WriteLine("catch TaskCanceledException in mConcurrentTask" + e.ToString());
+                                    Console.WriteLine("mConcurrentTask: catch OperationCanceledException");
                                     throw;
                                 }
                                 finally
@@ -118,18 +118,26 @@ namespace CancelTask
                             }
                         }
                     }
-                    , ct);
+                    , ct);*/
+
+                //3.combine above when need return from a UI thread
+                await Task.Run(
+                    () =>
+                    {
+                        Task.WaitAll(new Task[] { mInitializationTask, mConcurrentTask });
+                    }
+                );
             }
             catch (TaskCanceledException e)//this exception thrown when run a task whose canceltoken already have benn canceled 
             {
                 //try hold TaskCanceledException in cancel part
-                Console.WriteLine("Test: catch TaskCanceledException" + e.ToString());
+                Console.WriteLine("Test: catch TaskCanceledException");
                 throw;
             }
             catch (AggregateException e)//this exception thrown when a task throw a exception
             {
                 //try hold AggregateException in cancel part
-                Console.WriteLine("Test: catch AggregateException in main thread cancel code part" + e.ToString());
+                Console.WriteLine("Test: catch AggregateException");
                 throw;
             }
         }
