@@ -66,9 +66,26 @@ namespace CancelTask
                     }
                 }
                 , ct);
+            var mWaitTask = Task.Run(
+                    () =>
+                    {
+                        try
+                        {
+                            Task.WaitAll(new Task[] { mInitializationTask, mConcurrentTask });
+                        }
+                        catch (AggregateException e)
+                        {
+                            Console.WriteLine("mWaitTask: catch OperationCanceledException");
+                        }
+                    }
+                    );
             try
             {
-                _ = Task.Run(
+                //1)cancel immediately
+                cts.Cancel();
+
+                //2)cancel in future
+                /*_ = Task.Run(
                     () =>
                     {
                         //call cancel after specific time
@@ -76,7 +93,7 @@ namespace CancelTask
                         Console.WriteLine("Call task cancel.");
                         cts.Cancel();
                     }
-                    );
+                    );*/
 
                 //1.Task method to wait
                 //cts.Cancel();
@@ -121,12 +138,7 @@ namespace CancelTask
                     , ct);*/
 
                 //3.combine above when need return from a UI thread
-                await Task.Run(
-                    () =>
-                    {
-                        Task.WaitAll(new Task[] { mInitializationTask, mConcurrentTask });
-                    }
-                );
+                await mWaitTask;
             }
             catch (TaskCanceledException e)//this exception thrown when run a task whose canceltoken already have benn canceled 
             {
