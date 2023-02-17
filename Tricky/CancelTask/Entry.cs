@@ -66,11 +66,18 @@ namespace CancelTask
                     }
                 }
                 , ct);*/
-
-            Thread.Sleep(2000);
             try
             {
-                cts.Cancel();
+                _ = Task.Run(
+                    () =>
+                    {
+                        //call cancel after specific time
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Call task cancel.");
+                        cts.Cancel();
+                    }
+                    );
+
                 //1.Task method to wait
                 //cts.Cancel();
                 //Task.WaitAll(new Task[] { mInitializationTask, mConcurrentTask });
@@ -113,13 +120,13 @@ namespace CancelTask
                     }
                     , ct);
             }
-            catch (TaskCanceledException e)
+            catch (TaskCanceledException e)//this exception thrown when run a task whose canceltoken already have benn canceled 
             {
                 //try hold TaskCanceledException in cancel part
                 Console.WriteLine("Test: catch TaskCanceledException" + e.ToString());
                 throw;
             }
-            catch (AggregateException e)
+            catch (AggregateException e)//this exception thrown when a task throw a exception
             {
                 //try hold AggregateException in cancel part
                 Console.WriteLine("Test: catch AggregateException in main thread cancel code part" + e.ToString());
