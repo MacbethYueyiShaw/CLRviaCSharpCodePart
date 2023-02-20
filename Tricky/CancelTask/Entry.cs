@@ -75,17 +75,18 @@ namespace CancelTask
                         }
                         catch (AggregateException e)
                         {
-                            Console.WriteLine("mWaitTask: catch OperationCanceledException");
+                            Console.WriteLine("mWaitTask: catch AggregateException");
+                            throw;
                         }
                     }
                     );
             try
             {
                 //1)cancel immediately
-                cts.Cancel();
+                //cts.Cancel();
 
                 //2)cancel in future
-                /*_ = Task.Run(
+                _ = Task.Run(
                     () =>
                     {
                         //call cancel after specific time
@@ -93,7 +94,7 @@ namespace CancelTask
                         Console.WriteLine("Call task cancel.");
                         cts.Cancel();
                     }
-                    );*/
+                    );
 
                 //1.Task method to wait
                 //cts.Cancel();
@@ -136,9 +137,11 @@ namespace CancelTask
                         }
                     }
                     , ct);*/
+                await mInitializationTask;
+                await mConcurrentTask;
 
                 //3.combine above when need return from a UI thread
-                await mWaitTask;
+                //await mWaitTask;
             }
             catch (TaskCanceledException e)//this exception thrown when run a task whose canceltoken already have benn canceled 
             {
@@ -150,6 +153,18 @@ namespace CancelTask
             {
                 //try hold AggregateException in cancel part
                 Console.WriteLine("Test: catch AggregateException");
+                throw;
+            }
+            catch (OperationCanceledException e)
+            {
+                //try hold OperationCanceledException in cancel part
+                Console.WriteLine("Test: catch OperationCanceledException");
+                throw;
+            }
+            catch (Exception e)
+            {
+                //try hold Exception in cancel part
+                Console.WriteLine("Test: catch Exception");
                 throw;
             }
         }
