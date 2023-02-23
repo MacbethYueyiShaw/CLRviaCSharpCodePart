@@ -36,7 +36,7 @@ namespace Pooling
 
             this.size = size;
             this.factory = factory;
-            sync = new Semaphore(size, size);
+            sync = new Semaphore(5, 5);//debug here: found if size < 7, all thread will be blocked in this case
             this.loadingMode = loadingMode;
             this.itemStore = CreateItemStore(accessMode, size);
             if (loadingMode == LoadingMode.Eager)
@@ -343,47 +343,6 @@ namespace Pooling
         public void Test()
         {
             internalFoo.Test();
-        }
-    }
-    class Program
-    {
-        static int PoolSize = 5;
-
-        static void Main(string[] args)
-        {
-            using (Pool<IFoo> pool = new Pool<IFoo>(PoolSize, p => new PooledFoo(p),
-                LoadingMode.Lazy, AccessMode.Circular))
-            {
-                using (ManualResetEvent finishedEvent = new ManualResetEvent(false))
-                {
-                    int remaining = 10;
-                    for (int i = 0; i < 10; i++)
-                    {
-                        int q = i;
-                        ThreadPool.QueueUserWorkItem(s =>
-                        {
-                            Console.WriteLine("Thread started: {0}", q);
-                            for (int j = 0; j < 50; j++)
-                            {
-                                using (IFoo foo = pool.Acquire())
-                                using (IFoo foo2 = pool.Acquire())
-                                {
-                                    foo.Test();
-                                    foo2.Test();
-                                }
-                            }
-                            if (Interlocked.Decrement(ref remaining) == 0)
-                            {
-                                finishedEvent.Set();
-                            }
-                        });
-                    }
-                    finishedEvent.WaitOne();
-                }
-                Console.WriteLine("Threaded partial load test finished.");
-                Console.WriteLine();
-            }
-            Console.ReadLine();
         }
     }
 }
