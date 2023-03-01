@@ -10,9 +10,10 @@ namespace TaskContextParseOrCapture
 {
     class TestClass
     {
-        public int localCounter = 0;
         public List<Work> localMember = new List<Work>();
-        
+        public List<Work> otherlist = new List<Work>();
+        public bool otherval = false;
+        public int localCounter = 0;
         public void TaskGo()
         {
             //Works works = Works.Instance();
@@ -46,6 +47,7 @@ namespace TaskContextParseOrCapture
                 localMember.Add(mainwork);
                 localCounter++;
                 Console.WriteLine($"Main localCounter adress: [{MemoryAddress.Get(localCounter)}],localMember adress:[{MemoryAddress.Get(localMember)}]");
+                //Console.WriteLine($"Main doing sth...");
             }
         }
         public async Task DoWorkAsync()
@@ -54,6 +56,7 @@ namespace TaskContextParseOrCapture
             var taskwork = new Work("taskwork");
             taskwork.Do();
             Works.Instance().Record(false, taskwork);
+            if (localMember == null) localMember = new List<Work>();
             localMember.Add(taskwork);
             localCounter++;
             Console.WriteLine($"Asynctask localCounter adress: [{MemoryAddress.Get(localCounter)}],localMember adress:[{MemoryAddress.Get(localMember)}]");
@@ -124,12 +127,14 @@ namespace TaskContextParseOrCapture
 
     class Program
     {
-        public static void Main()
+        /*public static void Main()
         {
             TestClass entry = new TestClass();
+            Console.WriteLine($"Main localCounter adress: [{MemoryAddress.Get(entry.localCounter)}],localMember adress:[{MemoryAddress.Get(entry.localMember)}]");
             entry.TaskGo();
             entry.MainGo();
 
+            Console.WriteLine($"Main localCounter adress: [{MemoryAddress.Get(entry.localCounter)}],localMember adress:[{MemoryAddress.Get(entry.localMember)}]");
             Console.WriteLine("Print all works recorded in singleton works array:");
             Works.Instance().Log();
             Console.WriteLine("Print all works recorded in localmember works array:");
@@ -137,16 +142,22 @@ namespace TaskContextParseOrCapture
             Console.WriteLine($"LocalCounter:[{entry.localCounter}]");
             Console.WriteLine("press any key to exit.");
             Console.ReadLine();
-        }
+        }*/
     }
     public static class MemoryAddress
     {
         public static string Get(object a)
         {
-            GCHandle handle = GCHandle.Alloc(a, GCHandleType.Weak);
+            /*GCHandle handle = GCHandle.Alloc(a, GCHandleType.Weak);
             IntPtr pointer = GCHandle.ToIntPtr(handle);
-            handle.Free();
-            return "0x" + pointer.ToString("X");
+            handle.Free();*/
+            unsafe
+            {
+                object o = new object();
+                TypedReference tr = __makeref(o);
+                IntPtr ptr = **(IntPtr**)(&tr);
+                return "0x" + ptr.ToString("X");
+            }
         }
     }
 }
