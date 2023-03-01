@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace TaskContextParseOrCapture
 {
-    class Entry
+    class TestClass
     {
-        List<Work> localMember = new List<Work>();
-        public static void Main()
-        {
-            Entry entry = new Entry();
-            entry.Go();
-        }
-        public void Go()
+        public int localCounter = 0;
+        public List<Work> localMember = new List<Work>();
+        
+        public void TaskGo()
         {
             //Works works = Works.Instance();
 
@@ -24,13 +22,20 @@ namespace TaskContextParseOrCapture
                 .ContinueWith(
                 (t) =>
                 {
-                    var taskwork = new Work("subtaskwork");
-                    taskwork.Do();
-                    Works.Instance().Record(false, taskwork);
-                    localMember.Add(taskwork);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        var taskwork = new Work("subtaskwork");
+                        taskwork.Do();
+                        Works.Instance().Record(false, taskwork);
+                        localMember.Add(taskwork);
+                        localCounter++;
+                        Console.WriteLine($"Subtask localCounter adress: [{MemoryAddress.Get(localCounter)}],localMember adress:[{MemoryAddress.Get(localMember)}]");
+                    }
                 }
                 );
-
+        }
+        public void MainGo()
+        {
             //simulate rendering work
             for (int i = 0; i < 10; i++)
             {
@@ -39,16 +44,10 @@ namespace TaskContextParseOrCapture
                 mainwork.Do();
                 Works.Instance().Record(true, mainwork);
                 localMember.Add(mainwork);
+                localCounter++;
+                Console.WriteLine($"Main localCounter adress: [{MemoryAddress.Get(localCounter)}],localMember adress:[{MemoryAddress.Get(localMember)}]");
             }
-
-            Console.WriteLine("Print all works recorded in singleton works array:");
-            Works.Instance().Log();
-            Console.WriteLine("Print all works recorded in localmember works array:");
-            Console.WriteLine($"count:[{localMember.Count}]");
-            Console.WriteLine("press any key to exit.");
-            Console.ReadLine();
         }
-
         public async Task DoWorkAsync()
         {
             await Task.Delay(3000);
@@ -56,6 +55,8 @@ namespace TaskContextParseOrCapture
             taskwork.Do();
             Works.Instance().Record(false, taskwork);
             localMember.Add(taskwork);
+            localCounter++;
+            Console.WriteLine($"Asynctask localCounter adress: [{MemoryAddress.Get(localCounter)}],localMember adress:[{MemoryAddress.Get(localMember)}]");
         }
     }
 
@@ -118,6 +119,34 @@ namespace TaskContextParseOrCapture
         public void Do()
         {
             Console.WriteLine($"Thread[{Thread.CurrentThread.ManagedThreadId}] do work: id:[{workId}]  name[{workName}]");
+        }
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            TestClass entry = new TestClass();
+            entry.TaskGo();
+            entry.MainGo();
+
+            Console.WriteLine("Print all works recorded in singleton works array:");
+            Works.Instance().Log();
+            Console.WriteLine("Print all works recorded in localmember works array:");
+            Console.WriteLine($"count:[{entry.localMember.Count}]");
+            Console.WriteLine($"LocalCounter:[{entry.localCounter}]");
+            Console.WriteLine("press any key to exit.");
+            Console.ReadLine();
+        }
+    }
+    public static class MemoryAddress
+    {
+        public static string Get(object a)
+        {
+            GCHandle handle = GCHandle.Alloc(a, GCHandleType.Weak);
+            IntPtr pointer = GCHandle.ToIntPtr(handle);
+            handle.Free();
+            return "0x" + pointer.ToString("X");
         }
     }
 }
